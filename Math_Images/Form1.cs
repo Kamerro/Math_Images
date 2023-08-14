@@ -47,7 +47,7 @@ namespace Math_Images
         private void trackBar1_ValueChanged(object sender, EventArgs e)
         {
             lbl_size.Text = $"size of pen:{trackBar1.Value}";
-            afigure.setNewSetOff(trackBar1.Value);
+            afigure?.setNewSetOff(trackBar1.Value);
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
@@ -73,7 +73,7 @@ namespace Math_Images
                     }
                 }
                 sender.Image = btmp;
-            }
+        }
 
         private void btnFilledRectangle_Click(object sender, EventArgs e)
         {
@@ -94,6 +94,11 @@ namespace Math_Images
         private void btn_Cos_Sin_Waves_Click(object sender, EventArgs e)
         {
             Generator.GenerateSinCosOnPictureBox(pictureBox1);
+        }
+
+        private void btn_rgbSineCosine_Click(object sender, EventArgs e)
+        {
+            Generator.GenerateRGBSinCosOnPictureBox(pictureBox1);
         }
     }
     

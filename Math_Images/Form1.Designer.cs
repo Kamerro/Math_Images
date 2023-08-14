@@ -44,6 +44,9 @@
             this.btn_Cos_Sin_Waves = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_rgbSineCosine = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
@@ -64,7 +67,7 @@
             this.btn_smooth.Name = "btn_smooth";
             this.btn_smooth.Size = new System.Drawing.Size(191, 37);
             this.btn_smooth.TabIndex = 1;
-            this.btn_smooth.Text = "smooth circle";
+            this.btn_smooth.Text = "Smooth circle";
             this.btn_smooth.UseVisualStyleBackColor = true;
             this.btn_smooth.Click += new System.EventHandler(this.btn_smooth_Click);
             // 
@@ -75,7 +78,7 @@
             this.btn_cross.Name = "btn_cross";
             this.btn_cross.Size = new System.Drawing.Size(191, 37);
             this.btn_cross.TabIndex = 2;
-            this.btn_cross.Text = "cross";
+            this.btn_cross.Text = "Cross";
             this.btn_cross.UseVisualStyleBackColor = true;
             this.btn_cross.Click += new System.EventHandler(this.btn_cross_Click);
             // 
@@ -86,7 +89,7 @@
             this.btn_circle.Name = "btn_circle";
             this.btn_circle.Size = new System.Drawing.Size(191, 37);
             this.btn_circle.TabIndex = 3;
-            this.btn_circle.Text = "circle";
+            this.btn_circle.Text = "Circle";
             this.btn_circle.UseVisualStyleBackColor = true;
             this.btn_circle.Click += new System.EventHandler(this.btn_circle_Click);
             // 
@@ -97,7 +100,7 @@
             this.btn_rectangle.Name = "btn_rectangle";
             this.btn_rectangle.Size = new System.Drawing.Size(191, 37);
             this.btn_rectangle.TabIndex = 4;
-            this.btn_rectangle.Text = "rectangle";
+            this.btn_rectangle.Text = "Rectangle";
             this.btn_rectangle.UseVisualStyleBackColor = true;
             this.btn_rectangle.Click += new System.EventHandler(this.btn_rectangle_Click);
             // 
@@ -124,27 +127,30 @@
             // lbl_size
             // 
             this.lbl_size.AutoSize = true;
-            this.lbl_size.Location = new System.Drawing.Point(167, 424);
+            this.lbl_size.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbl_size.Location = new System.Drawing.Point(112, 405);
             this.lbl_size.Name = "lbl_size";
-            this.lbl_size.Size = new System.Drawing.Size(74, 16);
+            this.lbl_size.Size = new System.Drawing.Size(124, 25);
             this.lbl_size.TabIndex = 7;
             this.lbl_size.Text = "size of pen:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.Location = new System.Drawing.Point(26, 405);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(14, 16);
+            this.label3.Size = new System.Drawing.Size(21, 22);
             this.label3.TabIndex = 8;
             this.label3.Text = "5";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.Location = new System.Drawing.Point(400, 405);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(21, 16);
+            this.label4.Size = new System.Drawing.Size(32, 22);
             this.label4.TabIndex = 9;
             this.label4.Text = "50";
             // 
@@ -155,7 +161,7 @@
             this.btnFilledRectangle.Name = "btnFilledRectangle";
             this.btnFilledRectangle.Size = new System.Drawing.Size(191, 37);
             this.btnFilledRectangle.TabIndex = 10;
-            this.btnFilledRectangle.Text = "filled rectangle";
+            this.btnFilledRectangle.Text = "Filled rectangle";
             this.btnFilledRectangle.UseVisualStyleBackColor = true;
             this.btnFilledRectangle.Click += new System.EventHandler(this.btnFilledRectangle_Click);
             // 
@@ -208,11 +214,44 @@
             this.panel2.Size = new System.Drawing.Size(449, 20);
             this.panel2.TabIndex = 15;
             // 
+            // btn_rgbSineCosine
+            // 
+            this.btn_rgbSineCosine.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_rgbSineCosine.Location = new System.Drawing.Point(703, 167);
+            this.btn_rgbSineCosine.Name = "btn_rgbSineCosine";
+            this.btn_rgbSineCosine.Size = new System.Drawing.Size(160, 64);
+            this.btn_rgbSineCosine.TabIndex = 16;
+            this.btn_rgbSineCosine.Text = "R Sine G Cosine";
+            this.btn_rgbSineCosine.UseVisualStyleBackColor = true;
+            this.btn_rgbSineCosine.Click += new System.EventHandler(this.btn_rgbSineCosine_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(715, 240);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(134, 16);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "*Different frequencies";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(727, 256);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 16);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "in colours";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(875, 481);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btn_rgbSineCosine);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_Cos_Sin_Waves);
@@ -231,7 +270,7 @@
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Math-Images";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
@@ -257,6 +296,9 @@
         private System.Windows.Forms.Button btn_Cos_Sin_Waves;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btn_rgbSineCosine;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
     }
 }
 

@@ -55,5 +55,25 @@ namespace Math_Images
             }
             pictureBox1.Image = btmp;
         }
+
+        internal static void GenerateRGBSinCosOnPictureBox(PictureBox pictureBox1)
+        {
+            Bitmap btmp = pictureBox1.Image as Bitmap;
+            for (int i = 0; i < pictureBox1.Width; i++)
+            {
+                for (int j = 0; j < pictureBox1.Height; j++)
+                {
+                    //10 hz. 
+                    int valueR = (int)(Math.Abs(Math.Sin(2 *10* Math.PI * (double)i / (double)pictureBox1.Width))*255);
+                    //5hz
+                    int valueG = (int)(Math.Abs(Math.Cos(2*5 * Math.PI * (double)j / (double)pictureBox1.Width)) * 255);
+                    int valueB = (valueR + valueG) / 2;
+                    btmp.SetPixel(i, j, Color.FromArgb(valueR, valueG, valueB));
+
+                    // MessageBox.Show(value.ToString());
+                }
+            }
+            pictureBox1.Image = btmp;
+        }
     }
 }
