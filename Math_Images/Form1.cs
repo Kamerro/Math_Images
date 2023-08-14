@@ -18,8 +18,10 @@ namespace Math_Images
         {
             InitializeComponent();
             pictureBox1.Image = (Image)new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            WyzerujKolor(pictureBox1);
+            lbl_size.Text = $"size of pen:{trackBar1.Value}";
         }
-
+        public int setOff = 5;
 
         
         private void WyzerujKolor(PictureBox sender)
@@ -29,7 +31,7 @@ namespace Math_Images
             {
                 for (int j = 0; j < sender.Height; j++)
                 {
-                    thisBitmap.SetPixel(i, j, Color.White);
+                    thisBitmap.SetPixel(i, j, Color.Wheat);
                 }
             }
             sender.Image = thisBitmap;
@@ -43,19 +45,64 @@ namespace Math_Images
         private void btn_smooth_Click(object sender, EventArgs e)
         {
             pictureBox1.MouseMove -= methodCross;
+            pictureBox1.MouseMove -= methodCircle;
+            pictureBox1.MouseMove -= methodRectangle;
             pictureBox1.MouseMove += methodSmooth;
         }
         private void btn_cross_Click(object sender, EventArgs e)
         {
             pictureBox1.MouseMove -= methodSmooth;
+            pictureBox1.MouseMove -= methodCircle;
+            pictureBox1.MouseMove -= methodRectangle;
             pictureBox1.MouseMove += methodCross;
         }
         private void btn_circle_Click(object sender, EventArgs e)
         {
             pictureBox1.MouseMove -= methodSmooth;
+            pictureBox1.MouseMove -= methodRectangle;
             pictureBox1.MouseMove -= methodCross;
             pictureBox1.MouseMove += methodCircle;
         }
+        private void btn_rectangle_Click(object sender, EventArgs e)
+        {
+            pictureBox1.MouseMove -= methodSmooth;
+            pictureBox1.MouseMove -= methodCross;
+            pictureBox1.MouseMove -= methodCircle;
+            pictureBox1.MouseMove += methodRectangle;
+        }
+
+        private void methodRectangle(object sender, MouseEventArgs e)
+        {
+
+            Point p = e.Location;
+            PictureBox thisSender = (sender as PictureBox);
+            WyzerujKolor(thisSender);
+            Bitmap thisBitmap = thisSender.Image as Bitmap;
+            #region params
+            int arm = setOff / 2;
+            int armSquared = arm * arm;
+            int left = p.X - arm;
+            int right = p.X + arm;
+            int top = p.Y - arm;
+            int bottom = p.Y + arm;
+            int locationX = e.Location.X;
+            int locationY = e.Location.Y;
+            #endregion
+            for (int i = left; i <= right; i++)
+            {
+                for (int j = top; j <= bottom; j++)
+                {
+                    if ((i ==left || i== right || j==top || j == bottom)&&(i > 0 && i < thisBitmap.Width && j > 0 && j < thisBitmap.Height))
+                    { 
+
+                                Color col = Color.Black;
+                        thisBitmap.SetPixel(i, j, col);
+                    }
+                }
+            }
+            thisSender.Image = thisBitmap;
+        }
+
         private void methodCross(object sender, MouseEventArgs e)
         {
             Point p = e.Location;
@@ -63,7 +110,6 @@ namespace Math_Images
             WyzerujKolor(thisSender);
             Bitmap thisBitmap = thisSender.Image as Bitmap;
             #region params
-            int setOff = 100;
             int arm = setOff / 2;
             int armSquared = arm * arm;
             int left = p.X - arm;
@@ -103,7 +149,6 @@ namespace Math_Images
             WyzerujKolor(thisSender);
             Bitmap thisBitmap = thisSender.Image as Bitmap;
             #region params
-            int setOff = 100;
             int arm = setOff / 2;
             int armSquared = arm * arm;
             int left = p.X - arm;
@@ -145,7 +190,6 @@ namespace Math_Images
             WyzerujKolor(thisSender);
             Bitmap thisBitmap = thisSender.Image as Bitmap;
             #region params
-            int setOff = 100;
             int arm = setOff / 2;
             int armSquared = arm * arm;
             int left = p.X - arm;
@@ -178,6 +222,10 @@ namespace Math_Images
             thisSender.Image = thisBitmap;
         }
 
-      
+        private void trackBar1_ValueChanged(object sender, EventArgs e)
+        {
+            lbl_size.Text = $"size of pen:{trackBar1.Value}";
+            setOff = trackBar1.Value;
+        }
     }
 }
