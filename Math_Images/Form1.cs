@@ -22,7 +22,6 @@ namespace Math_Images
             lbl_size.Text = $"size of pen:{trackBar1.Value}";
         }
         internal AFigures afigure;
-       
 
         private void btn_smooth_Click(object sender, EventArgs e)
         {
@@ -65,18 +64,37 @@ namespace Math_Images
         }
         private void ClearPb(PictureBox sender)
         {
-            var thisBitmap = afigure?.returnPictureBox().Image as Bitmap;
-            if (thisBitmap != null)
-            {
+                Bitmap btmp = sender.Image as Bitmap;
                 for (int i = 0; i < sender.Width; i++)
                 {
                     for (int j = 0; j < sender.Height; j++)
                     {
-                        thisBitmap.SetPixel(i, j, Color.Wheat);
+                    btmp.SetPixel(i, j, Color.Wheat);
                     }
                 }
-                sender.Image = thisBitmap;
+                sender.Image = btmp;
             }
+
+        private void btnFilledRectangle_Click(object sender, EventArgs e)
+        {
+            afigure = new FilledRectangle();
+            afigure.setPictureBox(pictureBox1);
+        }
+
+        private void btn_SinWaves_Click(object sender, EventArgs e)
+        {
+            Generator.GenerateSinOnPictureBox(pictureBox1);
+        }
+
+        private void btn_CosWaves_Click(object sender, EventArgs e)
+        {
+            Generator.GenerateCosOnPictureBox(pictureBox1);
+        }
+
+        private void btn_Cos_Sin_Waves_Click(object sender, EventArgs e)
+        {
+            Generator.GenerateSinCosOnPictureBox(pictureBox1);
         }
     }
+    
 }
